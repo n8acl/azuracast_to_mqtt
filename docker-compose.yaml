@@ -1,0 +1,8 @@
+services:
+
+  azuracast-mqtt:
+    build: .
+    container_name: azuracast-mqtt
+    volumes:
+      - /<PATH-TO>/azuracast-to-mqtt/config.json:/app/config.json
+    restart: unless-stopped

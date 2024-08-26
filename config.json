@@ -1,0 +1,6 @@
+{
+  "azuracast_status_url": "AZURACST NOWPLAYING API URL",
+  "mqtt_broker": "IP OR FQDN OF YOUR MQTT BROKER",
+  "mqtt_port": 1883,
+  "mqtt_topic_prefix": "azuracast/"
+}
