@@ -36,18 +36,49 @@ Then you need to enter some information into the `config.json` file. Edit the fi
 - `mqtt_port` : _Optional_ change this if your MQTT Broker is not on the default Port.
 - `mqtt_topic_prefix` : _Optional_ change this if you want to publish to a different topic schema instead.
 
-### Docker
+### Docker (Recommended)
+
+You can either build the image locally or use the image on Docker Hub to run this in Docker.
+
+#### Docker Hub
+
+To use the image on Docker Hub, you can still clone the repository to get the `config.json` file and get it setup correctly.
+
+Then edit the `docker-compose.yaml` file to set the path for the `config.json` file.
+
+Then run the following commands:
+
+```bash
+docker-compose pull
+docker-compose up -d
+```
+
+#### Building Locally
 
 After cloning the repo and setting up the `config.json` file, you will need to build the container. There is an example docker-compose.yaml file in the repository that you can use to build the container with.
 
-Edit the docker-compose file and add the path to the repo directory then run the following commands.
+Edit the docker-compose file and add the path to the repo directory.
+
+Then comment out this line:
+
+```yaml
+image: n8acl/azuracast_to_mqtt:latest
+```
+
+and uncomment this line:
+
+```yaml
+# build: .
+```
+
+then run the following commands.
 
 ```bash
 docker-compose build
 docker-compose up -d
 ```
 
-Once it is up, check your MQTT Broker. You should have track information streaming in.
+Regardless of how you got the container, once it is up, check your MQTT Broker. You should have track information streaming in.
 
 ### Run the script directly
 
